@@ -1,5 +1,8 @@
 name: 'Odet Service Upload'
 description: 'Uploads your service yml to Odet portal'
+branding:
+  icon: 'upload-cloud'
+  color: 'gray-dark'
 inputs:
   odet-file:
     required: true
