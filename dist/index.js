@@ -10299,16 +10299,18 @@ const core = __nccwpck_require__(353);
 const github = __nccwpck_require__(5736);
 var axios = __nccwpck_require__(944);
 var FormData = __nccwpck_require__(3212);
+var fs = __nccwpck_require__(5747);
 
 var data = new FormData();
 const odetFile = core.getInput("odet-file");
 const apiKey = core.getInput("api-key");
-data.append("yaml", odetFile);
+data.append("yaml", fs.createReadStream(odetFile));
 var config = {
   method: "post",
   url: "https://odet-staging.herokuapp.com/services",
   headers: {
     "X-ODET-KEY": apiKey,
+    ...data.getHeaders(),
   },
   data: data,
 };
@@ -10319,8 +10321,6 @@ axios(config)
   .catch(function (error) {
     console.log(error);
   });
-const time = new Date().toTimeString();
-core.setOutput("time", time);
 
 })();
 
