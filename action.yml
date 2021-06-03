@@ -1,12 +1,12 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Odet Service Upload'
+description: 'Uploads your service yml to Odet portal'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  odet-file:
     required: true
-    default: 'World'
+  api-key:
+    required: true
 outputs:
-  time: # id of output
+  time:
     description: 'The time we greeted you'
 runs:
   using: 'node12'

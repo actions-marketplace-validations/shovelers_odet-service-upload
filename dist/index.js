@@ -6145,14 +6145,12 @@ const core = __nccwpck_require__(353);
 const github = __nccwpck_require__(736);
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
+  const odetFile = core.getInput('odet-file');
+  const apiKey = core.getInput('api-key');
+  console.log(`${odetFile}`);
+  console.log(`${apiKey}`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
