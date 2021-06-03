@@ -1,21 +1,35 @@
-# Hello world javascript action
-
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+# Odet Service Upload
 
 ## Inputs
 
-### `who-to-greet`
+### `odet-file`
+**Required** 
 
-**Required** The name of the person to greet. Default `"World"`.
+name of yaml file with odet service data
 
-## Outputs
+### `api-key`
+**Required**
 
-### `time`
-
-The time we greeted you.
+api key for your organization, store it under github secrets for security purposes
 
 ## Example usage
-
-uses: actions/hello-world-javascript-action@v1.1
+```
+uses: shovelers/odet-service-upload@main
 with:
-  who-to-greet: 'Mona the Octocat'
+  odet-file: 'odet.yml'
+  api-key: ${{secrets.YOUR_API_KEY_SECRET_NAME}}
+```
+
+## Dev Setup
+
+### Install Dependencies
+`npm install`\
+\
+`npm i -g @vercel/ncc`
+
+### To build
+Before pushing your changes, run the following command
+
+`ncc build index.js`
+
+this will build your code in `dist/index.js`
