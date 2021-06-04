@@ -14,7 +14,7 @@ api key for your organization, store it under github secrets for security purpos
 
 ## Example usage
 ```
-uses: shovelers/odet-service-upload@main
+uses: shovelers/odet-service-upload@{latest-version}
 with:
   odet-file: 'odet.yml'
   api-key: ${{secrets.YOUR_API_KEY_SECRET_NAME}}
