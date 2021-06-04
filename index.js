@@ -8,6 +8,7 @@ var data = new FormData();
 const odetFile = core.getInput("odet-file");
 const apiKey = core.getInput("api-key");
 data.append("yaml", fs.createReadStream(odetFile));
+const url = core.getInput("staging") === 'true' ? "https://odet-staging.herokuapp.com" : "https://app.odet.cloud";
 var config = {
   method: "post",
   url: "https://odet-staging.herokuapp.com/services",
