@@ -10308,7 +10308,7 @@ data.append("yaml", fs.createReadStream(odetFile));
 const url = core.getInput("staging") === 'true' ? "https://odet-staging.herokuapp.com" : "https://app.odet.cloud";
 var config = {
   method: "post",
-  url: url,
+  url: `${url}/services`,
   headers: {
     "X-ODET-KEY": apiKey,
     ...data.getHeaders(),
