@@ -5,13 +5,13 @@ var FormData = require("form-data");
 var fs = require("fs");
 
 var data = new FormData();
-const odetFile = core.getInput("odet-file");
+const odetFile = 'odet.yml';
 const apiKey = core.getInput("api-key");
 data.append("yaml", fs.createReadStream(odetFile));
 const url = core.getInput("staging") === 'true' ? "https://odet-staging.herokuapp.com" : "https://app.odet.cloud";
 var config = {
   method: "post",
-  url: "https://odet-staging.herokuapp.com/services",
+  url: url,
   headers: {
     "X-ODET-KEY": apiKey,
     ...data.getHeaders(),
